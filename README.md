@@ -2,5 +2,5 @@
 Projecto final para disciplina de Programação para a Web
 
 ## 
-Bernardo Boavida
-<br>Sandra Carvalho
+<li>Bernardo Boavida
+<br><li>Sandra Carvalho
