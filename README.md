@@ -9,4 +9,5 @@ Projecto final para disciplina de Programação para a Web
 <br> Ideia para o projecto: um website de player de álbuns. 
 <br> O conceito é este: o utilizador acede ao website, onde estão exibidos várias capas de álbuns. Quando o utilizador carrega em qual pretende ouvir , o website apresenta as faixas de música do mesmo e toca a música selecionada.
 
-
+<br>API spotify: https://developer.spotify.com/
+<br>API youtube: https://console.cloud.google.com/
