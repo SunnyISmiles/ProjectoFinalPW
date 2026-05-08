@@ -6,8 +6,7 @@ Projecto final para disciplina de Programação para a Web
 <br><li>Sandra Carvalho
 
 <br> Link para o site do Github Pages: https://sunnyismiles.github.io/ProjectoFinalPW/
-<br> Ideia para o projecto: um website de player de álbuns. 
-<br> O conceito é este: o utilizador acede ao website, onde estão exibidos várias capas de álbuns. Quando o utilizador carrega em qual pretende ouvir , o website apresenta as faixas de música do mesmo e toca a música selecionada.
+<br> Ideia para o projecto: Pokédex. 
+<br> Conceito: um Pokedex inspirado no anime famoso de Pokémon, onde é possível procurar Pokemons, consultar o seu tipo, o seu nº de indificação na Pokedex oficial, bem como as suas evoluções e tipo (elementos).
 
-<br>API spotify: https://developer.spotify.com/
-<br>API youtube: https://console.cloud.google.com/
+<br>API Pokémon: https://pokeapi.co/api/v2/pokemon/{id or name}/
