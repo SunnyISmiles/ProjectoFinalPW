@@ -16,6 +16,7 @@ function getDataPokemon(pokemons) {
     console.log(pokemons.forms[0].name)
     let pokemonName = pokemons.forms[0].name
     let pokemonGIF = pokemons.sprites.other.showdown.front_default
+    if (pokemonGIF == null) pokemonGIF = pokemons.sprites.front_default
     showPokemonHTML(name,pokemonGIF)
 }
 
