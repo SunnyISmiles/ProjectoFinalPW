@@ -17,12 +17,15 @@ header {
 }
 
 header h1 {
-
-  color: var(--yellow);
   font-size: clamp(1rem, 4vw, 2rem);
   text-shadow: 3px 3px 0 var(--red-dark);
   letter-spacing: 4px;
   margin-bottom: 20px;
+}
+
+header p {
+    color: #ffcb05;
+    font-size: clamp(1rem, 4vw, 2rem) ;
 }
 
 #gallery { 
