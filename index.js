@@ -20,25 +20,39 @@ function getDataPokemon(pokemons) {
     let pokemonName = pokemons.forms[0].name
     let pokemonGIF = pokemons.sprites.other.showdown.front_default
     if (pokemonGIF == null) pokemonGIF = pokemons.sprites.front_default
-    showPokemonHTML(pokemonName,pokemonGIF)
+    let pokemonNum = pokemons.id
+    showPokemonHTML(pokemonName,pokemonGIF,pokemonNum)
 }
 
-function showPokemonHTML(name,pokemonGIF) {
+function showPokemonHTML(name,pokemonGIF,num) {
     let article = document.createElement('article')
     article.setAttribute('class','pokemon')
 
     let fig = document.createElement('figure')
 
+    let pokemonNum = document.createElement('figcaption')
+    pokemonNum.setAttribute('class','num')
+    if (num>=1 && num<=9) pokemonNum.textContent="#000"+num
+    else if(num>=10 && num<=99) pokemonNum.textContent="#00"+num
+    else if(num>=100 && num<=999) pokemonNum.textContent="#0"+num
+    else  pokemonNum.textContent="#"+num
+   
+
     let gif = document.createElement('img')
     gif.src = pokemonGIF
 
-    let figcaption = document.createElement('figcaption')
-    figcaption.textContent = name
+    let pokemonName = document.createElement('figcaption')
+    pokemonName.setAttribute('class','name')
+    pokemonName.textContent = name
+
+    
 
     gallery.append(article)
     article.append(fig)
+    fig.append(pokemonNum)
     fig.append(gif)
-    fig.append(figcaption)
+    fig.append(pokemonName)
+    
 }
 
 getAllPokemons();
