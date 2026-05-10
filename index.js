@@ -18,6 +18,7 @@ function getAllPokemons() {
 function getDataPokemon(pokemons) {
     console.log(pokemons.forms[0].name)
     let pokemonName = pokemons.forms[0].name
+    pokemonName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)
     let pokemonGIF = pokemons.sprites.other.showdown.front_default
     if (pokemonGIF == null) pokemonGIF = pokemons.sprites.front_default
     let pokemonNum = pokemons.id
