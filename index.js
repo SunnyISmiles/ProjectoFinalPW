@@ -1,4 +1,7 @@
 
+let body = document.querySelector('body')
+let gallery = document.querySelector('#gallery')
+
 function getAllPokemons() {
     let API_URL
     //1025
@@ -17,15 +20,25 @@ function getDataPokemon(pokemons) {
     let pokemonName = pokemons.forms[0].name
     let pokemonGIF = pokemons.sprites.other.showdown.front_default
     if (pokemonGIF == null) pokemonGIF = pokemons.sprites.front_default
-    showPokemonHTML(name,pokemonGIF)
+    showPokemonHTML(pokemonName,pokemonGIF)
 }
 
 function showPokemonHTML(name,pokemonGIF) {
-    let body = document.querySelector('body')
-    let gif = document.createElement('img')
-    body.append(gif)
+    let article = document.createElement('article')
+    article.setAttribute('class','pokemon')
 
+    let fig = document.createElement('figure')
+
+    let gif = document.createElement('img')
     gif.src = pokemonGIF
+
+    let figcaption = document.createElement('figcaption')
+    figcaption.textContent = name
+
+    gallery.append(article)
+    article.append(fig)
+    fig.append(gif)
+    fig.append(figcaption)
 }
 
 getAllPokemons();
