@@ -4,16 +4,42 @@ let gallery = document.querySelector('#gallery')
 
 function getAllPokemons() {
     let API_URL
+    let promises = []
+
     //1025
     for (let i = 1; i<=1025; i++) {
+
+        
         API_URL = `https://pokeapi.co/api/v2/pokemon/${i}`
-        fetch(API_URL)
-        .then(resposta => resposta.json())
-        .then(function(pokemons) {
-            getDataPokemon(pokemons)
+        let promise = fetch(API_URL)
+        .then(function(response) {
+            return response.json()
         })
+
+        promises.push(promise)
+        
+    }
+
+    Promise.all(promises)
+        .then(function(resultados) {
+            
+            resultados.sort(function(a,b) {
+                return a.id - b.id
+            })
+
+            getDataPokemons(resultados)
+        })
+        .catch(function(erro) {
+            console.log(erro)
+        })
+}
+
+function getDataPokemons(resultados) {
+    for (const pokemon of resultados) {
+        getDataPokemon(pokemon)
     }
 }
+
 
 function getDataPokemon(pokemons) {
     console.log(pokemons.forms[0].name)
