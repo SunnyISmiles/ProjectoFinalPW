@@ -40,7 +40,7 @@ function getDataPokemons(resultados) {
     }
 }
 
-let pokemonNames = [];
+let pokemonArticle = [];
 
 function getDataPokemon(pokemons) {
     let pokemonName = pokemons.forms[0].name
@@ -48,13 +48,13 @@ function getDataPokemon(pokemons) {
     let pokemonGIF = pokemons.sprites.other.showdown.front_default
     if (pokemonGIF == null) pokemonGIF = pokemons.sprites.front_default
     let pokemonNum = pokemons.id
-    pokemonNames.push(pokemonName);
     showPokemonHTML(pokemonName,pokemonGIF,pokemonNum)
 }
 
 function showPokemonHTML(name,pokemonGIF,num) {
     let article = document.createElement('article')
     article.setAttribute('class','pokemon')
+    pokemonArticle.push(article)
 
     let fig = document.createElement('figure')
 
@@ -85,20 +85,17 @@ function showPokemonHTML(name,pokemonGIF,num) {
 
 getAllPokemons();
 
-for(name of pokemonNames) {
-    console.log(name)
-}
 
 let input = document.querySelector('input');
 
 function filterByName(event){
     const searchTerm = event.target.value.trim().toLowerCase();
     
-    pokemonNames.forEach(nome=> {
-        nome.style.display = 'revert';
+    pokemonArticle.forEach(article=> {
+        article.style.display = '';
 
-        if(!nome.innerText.toLowerCase().include(searchTerm)){
-            nome.style.display = 'none';
+        if(!article.innerText.toLowerCase().includes(searchTerm)){
+            article.style.display = 'none';
         }
     });
 }
