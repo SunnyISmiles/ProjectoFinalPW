@@ -40,6 +40,7 @@ function getDataPokemons(resultados) {
     }
 }
 
+let pokemonNames = [];
 
 function getDataPokemon(pokemons) {
     console.log(pokemons.forms[0].name)
@@ -48,6 +49,7 @@ function getDataPokemon(pokemons) {
     let pokemonGIF = pokemons.sprites.other.showdown.front_default
     if (pokemonGIF == null) pokemonGIF = pokemons.sprites.front_default
     let pokemonNum = pokemons.id
+    pokemonNames += pokemonName;
     showPokemonHTML(pokemonName,pokemonGIF,pokemonNum)
 }
 
@@ -83,3 +85,10 @@ function showPokemonHTML(name,pokemonGIF,num) {
 }
 
 getAllPokemons();
+
+let input = document.querySelector('input');
+
+function filterByName(event){
+    const searchTerm = event.target.value.trim().toLowerCase();
+    const 
+}
