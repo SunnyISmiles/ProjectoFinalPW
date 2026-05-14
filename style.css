@@ -25,7 +25,7 @@ header h1 {
 
 @font-face{
   font-family: "Pixel Operator";
-  src: url('/Fonts/PixelOperator.ttf') format('truetype');
+  src: url('github.com/SunnyISmiles/ProjectoFinalPW/tree/main/Fonts/PixelOperator.ttf') format('truetype');
 }
 
 header p {
