@@ -56,6 +56,15 @@ article.pokemon {
     overflow: hidden;
 }
 
+.pokemon-gif { /*e mudar o nome*/
+    width: 95px;
+    height: 95px;
+    image-rendering: pixelated;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,.2));
+    transition: transform .25s;
+    object-fit: contain; /*isto força a imagem a comprimir*/
+}
+
 .pokemon:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow: 0 16px 36px rgba(0,0,0,.18);
@@ -65,14 +74,6 @@ article.pokemon {
     color:grey;
 }
 
-#gif {
-    width: 96px;
-    height: 96px;
-    image-rendering: pixelated;
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,.2));
-    transition: transform .25s;
-}
-
 main { padding: 32px 24px; }
 
 .barra-procura{
@@ -80,4 +81,3 @@ main { padding: 32px 24px; }
   height: 40px;
   padding: 0 15px;
 }
-

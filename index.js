@@ -68,6 +68,7 @@ function showPokemonHTML(name,pokemonGIF,num) {
 
     let gif = document.createElement('img')
     gif.src = pokemonGIF
+    gif.setAttribute('class', 'pokemon-gif'); //faltava isto
 
     let pokemonName = document.createElement('figcaption')
     pokemonName.setAttribute('class','name')
