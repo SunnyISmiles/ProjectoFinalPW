@@ -1,11 +1,11 @@
 body {
 
-  background: #1a1a2e;
+  background: #291919;
   min-height: 100vh;
 }
 
 header {
-  background-color: #e3350d;
+  background-color: #d92323;
   padding: 24px 32px 28px;
   text-align: center;
   position: sticky;
@@ -29,7 +29,7 @@ header h1 {
 }
 
 header p {
-    color: #ffcb05;
+    color: #2078c5;
     font-size: 35px;
     font-family: "Pixel Operator";
 }
