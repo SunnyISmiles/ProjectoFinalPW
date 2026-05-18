@@ -6,8 +6,8 @@ function getAllPokemons() {
     let API_URL
     let promises = []
 
-    //50 Pokémons 
-    for (let i = 1; i<=50; i++) {
+    //54 Pokémons 
+    for (let i = 1; i<=54; i++) {
 
         
         API_URL = `https://pokeapi.co/api/v2/pokemon/${i}`
