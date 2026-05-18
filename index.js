@@ -100,3 +100,15 @@ function filterByName(event){
         }
     });
 }
+
+
+
+let dataBaseAPI = 'https://projetoipw-836ce-default-rtdb.europe-west1.firebasedatabase.app/.json'
+
+fetch(dataBaseAPI)
+    .then(function(response) {
+        return response.json()
+    })
+    .then(function(data) {
+        console.log(data)
+    })
