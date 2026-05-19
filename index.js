@@ -58,7 +58,7 @@ function showPokemonHTML(name,pokemonGIF,num) {
 
     let btn = document.createElement("button");
     btn.setAttribute('class', 'favourites-button');
-    btn.innerHTML = "🩷";
+    btn.innerHTML = "❤️";
     article.append(btn);
 
     let fig = document.createElement('figure')
