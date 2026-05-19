@@ -56,6 +56,8 @@ function showPokemonHTML(name,pokemonGIF,num) {
     article.setAttribute('class','pokemon')
     pokemonArticle.push(article)
 
+    //criar elemento coração aqui append element etc.
+
     let fig = document.createElement('figure')
 
     let pokemonNum = document.createElement('figcaption')
