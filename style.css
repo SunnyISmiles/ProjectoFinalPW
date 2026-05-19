@@ -81,3 +81,15 @@ main { padding: 32px 24px; }
   height: 40px;
   padding: 0 15px;
 }
+
+.favourites-button{
+  background-color: lightpink;
+  border-color: red;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+
+  position: relative;
+  left: 65px;
+  bottom: 13px;
+}

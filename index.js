@@ -56,7 +56,10 @@ function showPokemonHTML(name,pokemonGIF,num) {
     article.setAttribute('class','pokemon')
     pokemonArticle.push(article)
 
-    //criar elemento coração aqui append element etc.
+    let btn = document.createElement("button");
+    btn.setAttribute('class', 'favourites-button');
+    btn.innerHTML = "🩷";
+    article.append(btn);
 
     let fig = document.createElement('figure')
 
