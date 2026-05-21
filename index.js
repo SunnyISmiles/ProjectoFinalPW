@@ -61,6 +61,13 @@ function showPokemonHTML(name,pokemonGIF,num) {
     btn.innerHTML = "&#x2665;&#xfe0f;";
     article.append(btn);
 
+    document.querySelectorAll('button.favourites-button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const nome = e.target.parentElement.querySelector('.name').textContent;
+            adicionarFavorito("1", nome);
+        })
+    })
+
     let fig = document.createElement('figure')
 
     let pokemonNum = document.createElement('figcaption')
@@ -107,13 +114,25 @@ function filterByName(event){
 }
 
 
+let DB_URL = "https://projetoipw-836ce-default-rtdb.europe-west1.firebasedatabase.app";
 
-let dataBaseAPI = 'https://projetoipw-836ce-default-rtdb.europe-west1.firebasedatabase.app/.json'
+function criarUser(id, name) {
+  fetch(`${DB_URL}/username/${id}.json`, {
+    method: "PUT",
+    body: JSON.stringify({
+      id: id,
+      name: name,
+      favorites: {}
+    })
+  });
+}
 
-fetch(dataBaseAPI)
-    .then(function(response) {
-        return response.json()
-    })
-    .then(function(data) {
-        console.log(data)
-    })
+criarUser("1", "Ash");
+
+function adicionarFavorito(userId, pokemonName) {
+  fetch(`${DB_URL}/username/${userId}/favorites/${pokemonName}.json`, {
+    method: "PUT",
+    body: JSON.stringify(pokemonName)
+  });
+}
+
