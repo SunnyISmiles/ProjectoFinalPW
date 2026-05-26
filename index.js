@@ -1,4 +1,3 @@
-
 let body = document.querySelector('body')
 let gallery = document.querySelector('#gallery')
 
@@ -59,17 +58,23 @@ function showPokemonHTML(name,pokemonGIF,num) {
     let btn = document.createElement("button");
     btn.setAttribute('class', 'favourites-button');
     btn.innerHTML = "&#x2665;&#xfe0f;";
+    btn.dataset.favorito = "false";
     article.append(btn);
 
     document.querySelectorAll('button.favourites-button').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const nome = e.target.parentElement.querySelector('.name').textContent;
-            adicionarFavorito("1", nome);
-            btn.innerHTML = "&#11088";
-                if (btn.innerHTML == "&#11088"){
-                    removerFavorito("1", nome);
-                    btn.innerHTML = "&#x2665;&#xfe0f;";
-                }
+            let nome = e.target.parentElement.querySelector('.name').textContent;
+            let isFavorito = btn.dataset.favorito === "true";
+
+            if (isFavorito){
+                removerFavorito("1", nome);
+                btn.innerHTML = "&#x2665;&#xfe0f;";
+                btn.dataset.favorito = "false";
+            } else {
+                adicionarFavorito("1", nome);
+                btn.innerHTML = "&#11088";
+                btn.dataset.favorito = "true";
+            }
         })
     })
 
