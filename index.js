@@ -141,3 +141,9 @@ function adicionarFavorito(userId, pokemonName) {
   });
 }
 
+function removerFavorito(userId, pokemonName) {
+    fetch(`${DB_URL}/username/${userId}/favorites/${pokemonName}.json`, {
+    method: "DELETE"
+    })
+}
+
