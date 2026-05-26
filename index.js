@@ -146,4 +146,3 @@ function removerFavorito(userId, pokemonName) {
     method: "DELETE"
     })
 }
-
