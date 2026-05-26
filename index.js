@@ -72,7 +72,7 @@ function showPokemonHTML(name,pokemonGIF,num) {
             btn.dataset.favorito = "false";
         } else {
             adicionarFavorito("1", nome);
-            btn.innerHTML = "&#11088";
+            btn.innerHTML = "&#127775";
             btn.dataset.favorito = "true";
         }
     })
