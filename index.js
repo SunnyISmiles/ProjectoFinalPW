@@ -61,21 +61,20 @@ function showPokemonHTML(name,pokemonGIF,num) {
     btn.dataset.favorito = "false";
     article.append(btn);
 
-    document.querySelectorAll('button.favourites-button').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            let nome = e.target.parentElement.querySelector('.name').textContent;
-            let isFavorito = btn.dataset.favorito === "true";
+    
+    btn.addEventListener('click', (e) => {
+        let nome = e.target.parentElement.querySelector('.name').textContent;
+        let isFavorito = btn.dataset.favorito === "true";
 
-            if (isFavorito){
-                removerFavorito("1", nome);
-                btn.innerHTML = "&#x2665;&#xfe0f;";
-                btn.dataset.favorito = "false";
-            } else {
-                adicionarFavorito("1", nome);
-                btn.innerHTML = "&#11088";
-                btn.dataset.favorito = "true";
-            }
-        })
+        if (isFavorito){
+            removerFavorito("1", nome);
+            btn.innerHTML = "&#x2665;&#xfe0f;";
+            btn.dataset.favorito = "false";
+        } else {
+            adicionarFavorito("1", nome);
+            btn.innerHTML = "&#11088";
+            btn.dataset.favorito = "true";
+        }
     })
 
     let fig = document.createElement('figure')
