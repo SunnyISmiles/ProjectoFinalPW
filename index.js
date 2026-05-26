@@ -65,6 +65,7 @@ function showPokemonHTML(name,pokemonGIF,num) {
         btn.addEventListener('click', (e) => {
             const nome = e.target.parentElement.querySelector('.name').textContent;
             adicionarFavorito("1", nome);
+            btn.innerHTML = "&#11088"; 
         })
     })
 
