@@ -21,16 +21,13 @@ function getAllPokemons() {
 
     Promise.all(promises)
         .then(function(resultados) {
-            
-            resultados.sort(function(a,b) {
-                return a.id - b.id
-            })
-
-            getDataPokemons(resultados)
-        })
-        .catch(function(erro) {
-            console.log(erro)
-        })
+        resultados.sort(function(a, b) { return a.id - b.id });
+        getDataPokemons(resultados);
+        carregarFavoritos("1"); 
+    })
+    .catch(function(erro) {
+        console.log(erro);
+    })
 }
 
 function getDataPokemons(resultados) {
@@ -126,14 +123,22 @@ function filterByName(event){
 let DB_URL = "https://projetoipw-836ce-default-rtdb.europe-west1.firebasedatabase.app";
 
 function criarUser(id, name) {
-  fetch(`${DB_URL}/username/${id}.json`, {
-    method: "PUT",
-    body: JSON.stringify({
-      id: id,
-      name: name,
-      favorites: {}
+  fetch(`${DB_URL}/username/${id}.json`)
+    .then(function(response) {
+      return response.json();
     })
-  });
+    .then(function(data) {
+      if (data === null) {
+        fetch(`${DB_URL}/username/${id}.json`, {
+          method: "PUT",
+          body: JSON.stringify({
+            id: id,
+            name: name,
+            favorites: {}
+          })
+        });
+      }
+    });
 }
 
 criarUser("1", "Ash");
@@ -149,4 +154,23 @@ function removerFavorito(userId, pokemonName) {
     fetch(`${DB_URL}/username/${userId}/favorites/${pokemonName}.json`, {
     method: "DELETE"
     })
+}
+
+function carregarFavoritos(userId) {
+  fetch(`${DB_URL}/username/${userId}/favorites.json`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(favoritos) {
+        if (!favoritos) return;
+
+        pokemonArticle.forEach(function(article) {
+            const nome = article.querySelector('.name').textContent;
+            if (favoritos[nome]) {
+                const btn = article.querySelector('.favourites-button');
+                btn.innerHTML = "&#127775";
+                btn.dataset.favorito = "true";
+            }
+        });
+    });
 }
