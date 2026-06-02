@@ -49,20 +49,19 @@ article.pokemon {
     padding: 20px 12px 16px;
     text-align: center;
     box-shadow: 0 8px 24px rgba(0,0,0,.12);
-    /*cursor: pointer;*/
     transition: transform .25s, box-shadow .25s;
     animation: fadeUp .4s ease both;
     position: relative;
     overflow: hidden;
 }
 
-.pokemon-gif { /*e mudar o nome*/
+.pokemon-gif {
     width: 95px;
     height: 95px;
     image-rendering: pixelated;
     filter: drop-shadow(2px 4px 6px rgba(0,0,0,.2));
     transition: transform .25s;
-    object-fit: contain; /*isto força a imagem a comprimir*/
+    object-fit: contain;
 }
 
 .pokemon:hover {
@@ -92,4 +91,115 @@ main { padding: 32px 24px; }
   position: relative;
   left: 65px;
   bottom: 13px;
+}
+
+/* ── Drawer de Favoritos ── */
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100%;
+  background: #1a0f0f;
+  border-left: 3px solid #d92323;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.drawer.fechado {
+  transform: translateX(100%);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid #d92323;
+  padding-bottom: 0.8rem;
+}
+
+.drawer-header h2 {
+  font-family: "Pixel Operator";
+  font-style: italic;
+  color: #ffffff;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.btn-fechar {
+  background: none;
+  border: 2px solid #d92323;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-fechar:hover {
+  background: #d92323;
+}
+
+#lista-favoritos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+#lista-favoritos li {
+  font-family: "Pixel Operator";
+  color: #ffffff;
+  font-size: 16px;
+  padding: 0.6rem 0.4rem;
+  border-bottom: 1px solid #3a1a1a;
+  letter-spacing: 1px;
+}
+
+#lista-favoritos li:last-child {
+  border-bottom: none;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#overlay.visivel {
+  display: block;
+}
+
+#btn-favoritos {
+  font-family: "Pixel Operator";
+  font-size: 16px;
+  background: #1a0f0f;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-left: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+#btn-favoritos:hover {
+  background: #8d6aee;
+  border-color: #000000;
+}
+
+.fav-num {
+  color: #aaaaaa;
+  font-size: 13px;
+  margin-right: 6px;
 }

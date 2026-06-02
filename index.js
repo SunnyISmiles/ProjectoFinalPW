@@ -174,3 +174,30 @@ function carregarFavoritos(userId) {
         });
     });
 }
+
+function abrirFavoritos() {
+  fetch(`${DB_URL}/username/1/favorites.json`)
+    .then(function(r) { return r.json(); })
+    .then(function(favoritos) {
+      let lista = document.getElementById('lista-favoritos');
+      lista.innerHTML = '';
+
+      if (!favoritos || Object.keys(favoritos).length === 0) {
+        lista.innerHTML = '<li>Nenhum favorito ainda.</li>';
+      } else {
+        Object.keys(favoritos).forEach(function(nome) {
+          let li = document.createElement('li');
+          li.textContent = nome;
+          lista.append(li);
+        });
+      }
+
+      document.getElementById('drawer-favoritos').classList.remove('fechado');
+      document.getElementById('overlay').classList.add('visivel');
+    });
+}
+
+function fecharFavoritos() {
+  document.getElementById('drawer-favoritos').classList.add('fechado');
+  document.getElementById('overlay').classList.remove('visivel');
+}

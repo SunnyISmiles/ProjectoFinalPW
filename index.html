@@ -12,6 +12,7 @@
         <h1>Projecto PW-LEI</h1>
         <p>Pokedex</p>
         <input type="search" class='barra-procura' placeholder="Search.." oninput="filterByName(event)">
+        <button id="btn-favoritos" onclick="abrirFavoritos()">Favoritos</button>
     </header>
     
 
@@ -24,5 +25,15 @@
 
         
     </main>
+
+    <div id="overlay" onclick="fecharFavoritos()"></div>
+
+    <div id="drawer-favoritos" class="drawer fechado">
+        <div class="drawer-header">
+            <h2>Favoritos</h2>
+            <button class="btn-fechar" onclick="fecharFavoritos()">✕</button>
+        </div>
+        <ul id="lista-favoritos"></ul>
+    </div>
 </body>
 </html>
