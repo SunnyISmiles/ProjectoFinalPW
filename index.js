@@ -141,7 +141,6 @@ function criarUser(id, name) {
     });
 }
 
-criarUser("1", "Ash");
 
 function adicionarFavorito(userId, pokemonName) {
   fetch(`${DB_URL}/username/${userId}/favorites/${pokemonName}.json`, {
