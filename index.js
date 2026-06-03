@@ -182,7 +182,7 @@ function abrirFavoritos() {
       let lista = document.getElementById('lista-favoritos');
       lista.innerHTML = '';
 
-      if (!favoritos || Object.keys(favoritos).length === 0) {
+      if (!favoritos) {
         lista.innerHTML = '<li>Nenhum favorito ainda.</li>';
       } else {
         Object.keys(favoritos).forEach(function(nome) {
