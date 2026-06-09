@@ -108,7 +108,7 @@ getAllPokemons();
 let input = document.querySelector('input');
 
 function filterByName(event){
-    const searchTerm = event.target.value.trim().toLowerCase();
+    let searchTerm = event.target.value.trim().toLowerCase();
     
     pokemonArticle.forEach(article=> {
         article.style.display = '';
@@ -164,7 +164,7 @@ function carregarFavoritos(userId) {
         if (!favoritos) return;
 
         pokemonArticle.forEach(function(article) {
-            const nome = article.querySelector('.name').textContent;
+            let nome = article.querySelector('.name').textContent;
             if (favoritos[nome]) {
                 const btn = article.querySelector('.favourites-button');
                 btn.innerHTML = "&#127775";
